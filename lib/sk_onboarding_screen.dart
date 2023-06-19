@@ -3,6 +3,9 @@ library sk_onboarding_screen;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sk_onboarding_screen/sk_onboarding_model.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:darke/generated/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SKOnboardingScreen extends StatefulWidget {
   final List<SkOnboardingModel> pages;
@@ -12,12 +15,12 @@ class SKOnboardingScreen extends StatefulWidget {
   final ValueChanged<String> getStartedClicked;
 
   SKOnboardingScreen({
-    Key key,
-    @required this.pages,
-    @required this.bgColor,
-    @required this.themeColor,
-    @required this.skipClicked,
-    @required this.getStartedClicked,
+    Key? key,
+    required this.pages,
+    required this.bgColor,
+    required this.themeColor,
+    required this.skipClicked,
+    required this.getStartedClicked,
   }) : super(key: key);
 
   @override
@@ -85,7 +88,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
                         widget.skipClicked("Skip Tapped");
                       },
                       child: Text(
-                        'Skip',
+                        LocaleKeys.skip.tr(),
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
@@ -192,7 +195,7 @@ class SKOnboardingScreenState extends State<SKOnboardingScreen> {
             borderRadius: new BorderRadius.all(Radius.circular(6.0))),
         child: new Center(
           child: new Text(
-            'Get Started',
+            LocaleKeys.getStarted.tr(),
             style: new TextStyle(
                 color: Colors.white,
                 fontSize: 20.0,
